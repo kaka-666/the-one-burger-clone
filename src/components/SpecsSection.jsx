@@ -5,8 +5,8 @@ export default function SpecsSection() {
   return (
     <section className="w-screen max-w-full flex flex-col justify-center border-2 border-theOneBlack bg-theOneWhite">
       <div className="w-full flex justify-end border-b-2 border-theOneBlack overflow-hidden">
-        <div className="w-full flex px-4 md:px-14 py-5 items-end justify-end min-h-[120px] sm:min-h-[160px] md:min-h-[180px] overflow-hidden">
-          <h2 className="inline-block w-max max-w-full text-left font-kunst-medium pt-2 leading-none text-[clamp(48px,6vw,180px)]">
+        <div className="w-full flex px-4 md:px-14 py-5 items-end justify-end min-h-[160px] max-h-[230px] overflow-hidden">
+          <h2 className="inline-block w-max max-w-full text-left font-kunst-medium pt-2 leading-none text-3xl sm:text-4xl lg:text-5xl xl:text-6xl overflow-hidden break-words">
             LAS ESPECIFICACIONES TÉCNICAS.
           </h2>
         </div>

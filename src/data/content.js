@@ -80,7 +80,7 @@ export const FAQS = [
   {
     question: '¿Cómo puedo pedir The One.?',
     answer:
-      'Puedes encargarla en nuestra web de pedidos para recogerla en nuestro local, o solicitarlo a través de uno de nuestros servicios colaboradores*, que te lo llevarán a donde tu quieras. *Como sabrás, las empresas de delivery, aplican ciertos fees de los que no somos responsables y sobre los que no tenemos control, puede que The One. a domicilio cueste más o menos del PVP de 9.99€.',
+      'Puedes encargarla en nuestra web de pedidos para recogerla en nuestro local, o solicitarlo a través de uno de nuestros servicios colaboradores*, que te lo llevarán a donde tu quieras. *Como sabrás, las empresas de delivery, aplican ciertos fees de los que no somos responsables y sobre los que no tenemos control, puede que The One. a domicilio cueste más o menos del PVP de 9.99€. Tratamos de revisar estos precios constantemente para que nuestra clientela reciba precios justos.',
   },
   {
     question: '¿Cuánto cuesta The One?',
