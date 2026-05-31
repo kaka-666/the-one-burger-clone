@@ -62,21 +62,24 @@ function TheOneLogoLarge() {
 
 export { TheOneLogo, TheOneLogoLarge }
 
+const navSectionClass =
+  'h-full w-full box-border text-base md:text-3xl md:leading-none leading-none flex items-end justify-end pl-7 pr-3 pb-3 md:pl-12'
+
 export default function Header({ onOrderClick, onBurgerClick, onHomeClick }) {
   const { isMobile } = useDevice()
   const [burgerHovered, setBurgerHovered] = useState(false)
   const [orderHovered, setOrderHovered] = useState(false)
 
   return (
-    <header className="fixed h-11 md:h-20 w-screen border-2 border-theOneBlack bg-theOneWhite flex z-40 max-w-full">
+    <header className="fixed top-0 left-0 right-0 z-40 box-border flex h-11 w-full max-w-full border-2 border-theOneBlack bg-theOneWhite md:h-20">
       <button
         type="button"
-        className="flex flex-grow cursor-pointer group"
+        className="flex h-full min-w-0 flex-1 cursor-pointer"
         onClick={onOrderClick}
         onMouseEnter={() => setOrderHovered(true)}
         onMouseLeave={() => setOrderHovered(false)}
       >
-        <section className="text-base md:text-3xl md:leading-none leading-none w-full flex-grow pt-3 pr-3 pb-3 md:pl-12 pl-7 flex justify-end items-end">
+        <section className={`${navSectionClass} bg-theOneWhite`}>
           <p className="text-theOneBlack font-bold">PÍDELA.</p>
           <p
             className={`text-theOneRed font-semibold transition-all duration-300 ${
@@ -87,16 +90,18 @@ export default function Header({ onOrderClick, onBurgerClick, onHomeClick }) {
           </p>
         </section>
       </button>
-      <div className="flex">
+      <div className="flex h-full shrink-0">
         <button
           type="button"
-          className="flex cursor-pointer group"
+          className="flex h-full cursor-pointer"
           onClick={onBurgerClick}
           onMouseEnter={() => setBurgerHovered(true)}
           onMouseLeave={() => setBurgerHovered(false)}
         >
-          <section className="text-base md:text-3xl md:leading-none leading-none border-x-2 border-theOneBlack bg-theOneGray pt-3 pr-3 pb-3 md:pl-12 pl-7 flex justify-end items-end">
-            <p className="text-theOneWhite font-bold whitespace-nowrap">
+          <section
+            className={`${navSectionClass} border-x-2 border-theOneBlack bg-theOneGray`}
+          >
+            <p className="whitespace-nowrap font-bold text-theOneWhite">
               {isMobile ? 'LA BURGER.' : 'SOBRE LA BURGER.'}
             </p>
             <p
@@ -108,9 +113,9 @@ export default function Header({ onOrderClick, onBurgerClick, onHomeClick }) {
             </p>
           </section>
         </button>
-        <button type="button" className="flex shrink-0 cursor-pointer" onClick={onHomeClick}>
-          <section className="group pt-3 pr-3 pb-3 md:pb-[14px] md:pl-12 pl-7 bg-theOneRed flex items-end justify-end cursor-pointer transition duration-300 hover:text-theOneRed hover:bg-theOneBlack">
-            <TheOneLogo className="max-w-[135px] max-h-[17px] md:max-w-[200px] md:max-h-[25px] w-full h-full block" />
+        <button type="button" className="flex h-full shrink-0 cursor-pointer" onClick={onHomeClick}>
+          <section className="group flex h-full items-end justify-end bg-theOneRed pb-3 pl-7 pr-3 transition duration-300 hover:bg-theOneBlack hover:text-theOneRed md:pl-12">
+            <TheOneLogo className="block h-[17px] w-full max-h-[17px] max-w-[135px] md:h-[25px] md:max-h-[25px] md:max-w-[200px]" />
           </section>
         </button>
       </div>

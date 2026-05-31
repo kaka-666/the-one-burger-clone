@@ -4,7 +4,7 @@ import { BagIcon, GlovoIcon, JustEatIcon, UberIcon } from './DeliveryIcons'
 export default function HeroSection({ onOrderClick }) {
   return (
     <section id="theOne" className="h-screen flex flex-col">
-      <div className="shrink-0 min-h-11 md:min-h-[5.125rem] lg:min-h-[5.25rem] w-screen" />
+      <div className="min-h-11 w-full shrink-0 md:min-h-20" aria-hidden="true" />
       <div className="flex-grow flex flex-col max-h-full">
         <div className="flex flex-col items-center justify-center h-4/5">
           <section className="flex h-5/6 min-h-0 items-end justify-center pt-1 md:pt-1 lg:pt-2">
