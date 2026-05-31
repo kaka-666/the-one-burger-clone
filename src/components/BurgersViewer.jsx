@@ -17,7 +17,7 @@ const LOTTIE_BY_TYPE = {
   veggie: veggieAnimation,
 }
 
-function Burger({ image, alt, label, extraStyles = '', onHoverChange, burgerType }) {
+function Burger({ image, alt, label, extraStyles = '', onHoverChange, burgerType, expanded = false }) {
   const [selfHovered, setSelfHovered] = useState(false)
 
   const handleEnter = () => {
@@ -32,7 +32,9 @@ function Burger({ image, alt, label, extraStyles = '', onHoverChange, burgerType
 
   return (
     <div
-      className={`relative aspect-square flex items-center justify-center overflow-hidden ${extraStyles}`}
+      className={`relative flex w-full items-center justify-center overflow-hidden ${
+        expanded ? 'h-full min-h-full' : 'aspect-square'
+      } ${extraStyles}`}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
     >
@@ -54,7 +56,7 @@ function Burger({ image, alt, label, extraStyles = '', onHoverChange, burgerType
   )
 }
 
-function BurgerDescription({ description, extraStyles = '' }) {
+function BurgerDescription({ description, extraStyles = '', expanded = false }) {
   useEffect(() => {
     gsap.fromTo(
       '.burger-description',
@@ -65,7 +67,9 @@ function BurgerDescription({ description, extraStyles = '' }) {
 
   return (
     <div
-      className={`flex aspect-square w-full items-end justify-end overflow-hidden text-right py-5 pr-5 p-10 lg:py-10 lg:pr-10 lg:p-20 ${extraStyles}`}
+      className={`flex w-full items-end justify-end text-right py-5 pr-5 p-10 lg:py-10 lg:pr-10 lg:p-20 ${
+        expanded ? 'h-full min-h-full' : 'aspect-square overflow-hidden'
+      } ${extraStyles}`}
     >
       <p className="burger-description w-full text-base md:text-base lg:text-2xl xl:text-4xl 2xl:text-5xl leading-none">
         {description}
@@ -74,7 +78,7 @@ function BurgerDescription({ description, extraStyles = '' }) {
   )
 }
 
-function BurgerSlidingText({ burgerType, extraStyles = '' }) {
+function BurgerSlidingText({ burgerType, extraStyles = '', expanded = false }) {
   const animationData = LOTTIE_BY_TYPE[burgerType]
   const lottieRef = useRef(null)
 
@@ -92,7 +96,9 @@ function BurgerSlidingText({ burgerType, extraStyles = '' }) {
 
   return (
     <div
-      className={`flex aspect-square items-center justify-center overflow-hidden ${extraStyles}`}
+      className={`flex w-full items-center justify-center overflow-hidden ${
+        expanded ? 'h-full min-h-full' : 'aspect-square'
+      } ${extraStyles}`}
     >
       <Lottie
         lottieRef={lottieRef}
@@ -111,6 +117,7 @@ function BurgersViewerDesktop() {
   const [veggieHovered, setVeggieHovered] = useState(false)
 
   const noneHovered = !meatHovered && !chickenHovered && !veggieHovered
+  const expanded = !noneHovered
 
   const handleHoverChange = useCallback((type, hovered) => {
     setMeatHovered(type === 'meat' && hovered)
@@ -127,10 +134,11 @@ function BurgersViewerDesktop() {
         alt={meat.alt}
         label={meat.label}
         burgerType="meat"
+        expanded={expanded}
         onHoverChange={handleHoverChange}
       />
     ),
-    [handleHoverChange, meat],
+    [expanded, handleHoverChange, meat],
   )
 
   const chickenBurger = useMemo(
@@ -141,10 +149,11 @@ function BurgersViewerDesktop() {
         label={chicken.label}
         extraStyles="border-x-2 border-theOneBlack"
         burgerType="chicken"
+        expanded={expanded}
         onHoverChange={handleHoverChange}
       />
     ),
-    [chicken, handleHoverChange],
+    [chicken, expanded, handleHoverChange],
   )
 
   const veggieBurger = useMemo(
@@ -155,10 +164,11 @@ function BurgersViewerDesktop() {
         label={veggie.label}
         extraStyles={veggieHovered ? 'border-l-2 border-theOneBlack' : ''}
         burgerType="veggie"
+        expanded={expanded}
         onHoverChange={handleHoverChange}
       />
     ),
-    [handleHoverChange, veggie, veggieHovered],
+    [expanded, handleHoverChange, veggie, veggieHovered],
   )
 
   const meatDescription = useMemo(
@@ -166,14 +176,15 @@ function BurgersViewerDesktop() {
       <BurgerDescription
         description={meat.description}
         extraStyles="border-x-2 border-theOneBlack"
+        expanded={expanded}
       />
     ),
-    [meat.description],
+    [expanded, meat.description],
   )
 
   const chickenDescription = useMemo(
-    () => <BurgerDescription description={chicken.description} />,
-    [chicken.description],
+    () => <BurgerDescription description={chicken.description} expanded={expanded} />,
+    [chicken.description, expanded],
   )
 
   const veggieDescription = useMemo(
@@ -181,19 +192,30 @@ function BurgersViewerDesktop() {
       <BurgerDescription
         description={veggie.description}
         extraStyles="border-r-2 border-theOneBlack"
+        expanded={expanded}
       />
     ),
-    [veggie.description],
+    [expanded, veggie.description],
   )
 
-  const meatSlidingText = useMemo(() => <BurgerSlidingText burgerType="meat" />, [])
+  const meatSlidingText = useMemo(
+    () => <BurgerSlidingText burgerType="meat" expanded={expanded} />,
+    [expanded],
+  )
   const chickenSlidingText = useMemo(
     () => (
-      <BurgerSlidingText burgerType="chicken" extraStyles="border-r-2 border-theOneBlack" />
+      <BurgerSlidingText
+        burgerType="chicken"
+        extraStyles="border-r-2 border-theOneBlack"
+        expanded={expanded}
+      />
     ),
-    [],
+    [expanded],
   )
-  const veggieSlidingText = useMemo(() => <BurgerSlidingText burgerType="veggie" />, [])
+  const veggieSlidingText = useMemo(
+    () => <BurgerSlidingText burgerType="veggie" expanded={expanded} />,
+    [expanded],
+  )
 
   const col1 =
     meatHovered || noneHovered
@@ -223,7 +245,7 @@ function BurgersViewerDesktop() {
           : null
 
   return (
-    <section className="mb-20 grid grid-cols-3 border-2 border-theOneBlack">
+    <section className="mb-20 grid grid-cols-3 items-stretch border-2 border-theOneBlack">
       {col1}
       {col2}
       {col3}
