@@ -1,0 +1,335 @@
+@import 'tailwindcss';
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+@theme {
+  --color-theOneBlack: rgb(0 0 0);
+  --color-theOneGray: rgb(31 31 31);
+  --color-theOneRed: rgb(239 50 5);
+  --color-theOneWhite: rgb(239 239 239);
+  --font-kunst-bold: 'Kunst Bold', sans-serif;
+  --font-kunst-regular: 'Kunst Regular', sans-serif;
+  --font-kunst-medium: 'Kunst Medium', sans-serif;
+  --font-kunst-heavy: 'Kunst Heavy', sans-serif;
+}
+
+@font-face {
+  font-family: 'Kunst Bold';
+  src: url('/fonts/Kunst-20-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kunst Regular';
+  src: url('/fonts/Kunst-72-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kunst Medium';
+  src: url('/fonts/Kunst-96-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kunst Heavy';
+  src: url('/fonts/Kunst-144-Heavy.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Kunst Regular', sans-serif;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  font-family: 'Kunst Regular', sans-serif;
+  background-color: rgb(239 239 239);
+  overflow-x: hidden;
+}
+
+.font-bold {
+  font-family: 'Kunst Bold', sans-serif;
+  font-weight: 700;
+}
+
+.font-medium {
+  font-family: 'Kunst Medium', sans-serif;
+  font-weight: 500;
+}
+
+body.loading {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.word {
+  display: inline-block;
+}
+
+.faqs {
+  width: 100%;
+  max-width: 1900px;
+  margin: 20px auto;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq-title {
+  align-self: flex-start;
+  font-size: 18px;
+  user-select: none;
+}
+
+.faqs .faq {
+  width: 100%;
+  border-top: 1px solid black;
+  padding: 5px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.faqs .faq .faq-question {
+  position: relative;
+  font-size: 18px;
+  padding-right: 50px;
+  transition: padding 0.2s ease, margin 0.2s ease;
+}
+
+.faqs .faq .faq-question::after {
+  content: '↑';
+  position: absolute;
+  top: 40%;
+  right: 0;
+  transform: translateY(-50%) translate(-65%) rotate(180deg);
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s ease;
+}
+
+.faqs .faq .faq-answer {
+  padding-left: 20px;
+  padding-right: 30px;
+  margin-top: 0;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease, opacity 0.2s ease, margin-top 0.5s ease;
+}
+
+.faqs .faq.open .faq-question::after {
+  transform: translateY(-50%) translate(-65%) rotate(0deg);
+}
+
+.faqs .faq.open .faq-answer {
+  opacity: 1;
+  max-height: 500px;
+  margin-top: 12px;
+}
+
+.burger-slider .slick-prev,
+.burger-slider .slick-next {
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+}
+
+.burger-slider .slick-prev::before,
+.burger-slider .slick-next::before {
+  color: rgb(239 50 5);
+  font-size: 30px;
+}
+
+.burger-slider .slick-dots li button::before {
+  color: rgb(239 50 5);
+}
+
+.hero-order-cell:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/*
+ * Veggie expanded layout — only when JS sets .burgers-grid--veggie-hovered.
+ * Do NOT use :hover on .burger-col3-veggie alone (causes wrong 3-burger layout).
+ */
+
+.burgers-grid--veggie-hovered .burger-col3-veggie {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  aspect-ratio: 1 / 1.22;
+  overflow: hidden;
+  border-left: 2px solid rgb(0 0 0);
+  transition: aspect-ratio 0.3s ease-in-out;
+}
+
+.burgers-grid--veggie-hovered .burger-col3-veggie > .burger-col3-veggie__img {
+  order: 1;
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.25);
+  transform-origin: top center;
+}
+
+.burgers-grid--veggie-hovered .burger-col3-veggie > div {
+  position: relative;
+  order: 2;
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+}
+
+/* Col2 red VEGGIE — vertical center via flex column, image size unchanged */
+.burgers-grid--veggie-hovered {
+  align-items: start;
+}
+
+.burgers-grid--veggie-hovered .burgers-sliding-veggie {
+  align-self: stretch;
+  aspect-ratio: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  background-color: rgb(239 239 239);
+  overflow: hidden;
+}
+
+.burgers-grid--veggie-hovered .burgers-sliding-veggie .burger-sliding-text {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto !important;
+  flex: 0 0 auto;
+  align-self: stretch;
+  background-color: rgb(239 50 5);
+}
+
+/* ── Loading screen (match theoneburgerbcn.com) ── */
+.loading-screen-text {
+  font-family: 'Kunst Regular', sans-serif;
+  color: rgb(31 31 31);
+  line-height: 1;
+  min-width: 70%;
+  text-align: end;
+  transform-origin: right center;
+  font-size: 1.25rem;
+}
+
+.loading-screen-icon {
+  width: 36px;
+  height: 28px;
+}
+
+@media (min-width: 768px) {
+  .loading-screen-text {
+    font-size: 2.25rem;
+    min-width: 20%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .loading-screen-text {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .loading-screen-text {
+    font-size: 4.5rem;
+  }
+
+  .faq-title,
+  .faqs .faq .faq-question {
+    font-size: 22px;
+  }
+
+  .faqs .faq .faq-answer {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .loading-screen-text {
+    font-size: 4.5rem;
+  }
+
+  .faq-title,
+  .faqs .faq .faq-question {
+    font-size: 24px;
+  }
+
+  .faqs .faq .faq-answer {
+    font-size: 20px;
+  }
+}
+
+@keyframes scrollHorizontal {
+  0%,
+  100% {
+    transform: translate(2%);
+  }
+
+  50% {
+    transform: translate(-30%);
+  }
+}
+
+.auto-scroll {
+  animation: scrollHorizontal 10s linear infinite;
+}
+
+.auto-scroll-parent {
+  justify-content: flex-end !important;
+}
+
+.hover-underline-animation {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.hover-underline-animation::after {
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  background-color: rgb(239 239 239);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  content: '';
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+}
