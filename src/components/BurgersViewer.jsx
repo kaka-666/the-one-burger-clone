@@ -17,7 +17,7 @@ const LOTTIE_BY_TYPE = {
   veggie: veggieAnimation,
 }
 
-function Burger({ image, alt, label, extraStyles = '', burgerType, onHoverChange }) {
+function Burger({ image, alt, label, extraStyles = '', onHoverChange, burgerType }) {
   const [selfHovered, setSelfHovered] = useState(false)
 
   const handleEnter = () => {
@@ -32,28 +32,22 @@ function Burger({ image, alt, label, extraStyles = '', burgerType, onHoverChange
 
   return (
     <div
-      className={`relative aspect-square flex items-center justify-center overflow-hidden bg-theOneWhite ${
-        burgerType === 'veggie' ? 'burger-col3-veggie' : ''
-      } ${extraStyles}`}
+      className={`relative aspect-square flex items-center justify-center overflow-hidden ${extraStyles}`}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
     >
       <div className="absolute w-full h-full flex items-end justify-end text-right py-5 pr-5 p-10 lg:py-10 lg:pr-10 lg:p-20">
-        <p className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl z-10 select-none leading-none">
+        <p className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl z-10 select-none leading-none">
           {label}.
         </p>
       </div>
       <img
         src={image}
-        className={
-          burgerType === 'veggie'
-            ? 'burger-col3-veggie__img w-full h-full object-cover scale-100 transition-transform ease-in-out duration-300'
-            : `w-full h-full object-cover ${
-                selfHovered
-                  ? 'scale-125 transition-transform ease-in-out duration-300'
-                  : 'scale-100 transition-transform ease-in-out duration-300'
-              }`
-        }
+        className={`w-full h-full object-cover ${
+          selfHovered
+            ? 'scale-125 transition-transform ease-in-out duration-300'
+            : 'scale-100 transition-transform ease-in-out duration-300'
+        }`}
         alt={alt}
       />
     </div>
@@ -71,9 +65,9 @@ function BurgerDescription({ description, extraStyles = '' }) {
 
   return (
     <div
-      className={`overflow-hidden flex w-full h-full items-end text-right py-5 pr-5 p-10 lg:py-10 lg:pr-10 lg:p-20 bg-theOneWhite ${extraStyles}`}
+      className={`flex aspect-square w-full items-end justify-end overflow-hidden text-right py-5 pr-5 p-10 lg:py-10 lg:pr-10 lg:p-20 ${extraStyles}`}
     >
-      <p className="burger-description text-xl md:text-2xl lg:text-3xl xl:text-5xl 2xl:text-6xl leading-none">
+      <p className="burger-description w-full text-base md:text-base lg:text-2xl xl:text-4xl 2xl:text-5xl leading-none">
         {description}
       </p>
     </div>
@@ -82,6 +76,7 @@ function BurgerDescription({ description, extraStyles = '' }) {
 
 function BurgerSlidingText({ burgerType, extraStyles = '' }) {
   const animationData = LOTTIE_BY_TYPE[burgerType]
+  const lottieRef = useRef(null)
 
   useEffect(() => {
     gsap.fromTo(
@@ -91,11 +86,16 @@ function BurgerSlidingText({ burgerType, extraStyles = '' }) {
     )
   }, [burgerType])
 
+  useEffect(() => {
+    lottieRef.current?.setSpeed(0.5)
+  }, [burgerType])
+
   return (
     <div
-      className={`aspect-square flex items-center justify-center overflow-hidden bg-theOneRed ${extraStyles}`}
+      className={`flex aspect-square items-center justify-center overflow-hidden ${extraStyles}`}
     >
       <Lottie
+        lottieRef={lottieRef}
         className="burger-sliding-text"
         animationData={animationData}
         loop
@@ -109,36 +109,14 @@ function BurgersViewerDesktop() {
   const [meatHovered, setMeatHovered] = useState(false)
   const [chickenHovered, setChickenHovered] = useState(false)
   const [veggieHovered, setVeggieHovered] = useState(false)
-  const hoverClearTimerRef = useRef(null)
 
   const noneHovered = !meatHovered && !chickenHovered && !veggieHovered
 
   const handleHoverChange = useCallback((type, hovered) => {
-    if (hoverClearTimerRef.current) {
-      clearTimeout(hoverClearTimerRef.current)
-      hoverClearTimerRef.current = null
-    }
-
-    if (hovered) {
-      setMeatHovered(type === 'meat')
-      setChickenHovered(type === 'chicken')
-      setVeggieHovered(type === 'veggie')
-      return
-    }
-
-    hoverClearTimerRef.current = setTimeout(() => {
-      if (type === 'meat') setMeatHovered(false)
-      else if (type === 'chicken') setChickenHovered(false)
-      else setVeggieHovered(false)
-    }, 120)
+    setMeatHovered(type === 'meat' && hovered)
+    setChickenHovered(type === 'chicken' && hovered)
+    setVeggieHovered(type === 'veggie' && hovered)
   }, [])
-
-  useEffect(
-    () => () => {
-      if (hoverClearTimerRef.current) clearTimeout(hoverClearTimerRef.current)
-    },
-    [],
-  )
 
   const [meat, chicken, veggie] = BURGERS
 
@@ -175,11 +153,12 @@ function BurgersViewerDesktop() {
         image={veggie.image}
         alt={veggie.alt}
         label={veggie.label}
+        extraStyles={veggieHovered ? 'border-l-2 border-theOneBlack' : ''}
         burgerType="veggie"
         onHoverChange={handleHoverChange}
       />
     ),
-    [handleHoverChange, veggie],
+    [handleHoverChange, veggie, veggieHovered],
   )
 
   const meatDescription = useMemo(
@@ -209,13 +188,12 @@ function BurgersViewerDesktop() {
 
   const meatSlidingText = useMemo(() => <BurgerSlidingText burgerType="meat" />, [])
   const chickenSlidingText = useMemo(
-    () => <BurgerSlidingText burgerType="chicken" extraStyles="border-theOneBlack" />,
+    () => (
+      <BurgerSlidingText burgerType="chicken" extraStyles="border-r-2 border-theOneBlack" />
+    ),
     [],
   )
-  const veggieSlidingText = useMemo(
-    () => <BurgerSlidingText burgerType="veggie" extraStyles="burgers-sliding-veggie" />,
-    [],
-  )
+  const veggieSlidingText = useMemo(() => <BurgerSlidingText burgerType="veggie" />, [])
 
   const col1 =
     meatHovered || noneHovered
@@ -245,11 +223,7 @@ function BurgersViewerDesktop() {
           : null
 
   return (
-    <section
-      className={`burgers-menu-grid grid grid-cols-3 border-2 border-theOneBlack mb-20 ${
-        veggieHovered ? 'burgers-grid--veggie-hovered' : ''
-      }`}
-    >
+    <section className="mb-20 grid grid-cols-3 border-2 border-theOneBlack">
       {col1}
       {col2}
       {col3}

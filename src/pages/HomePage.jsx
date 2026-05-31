@@ -1,5 +1,9 @@
 import { useCallback, useState } from 'react'
+import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
+
+gsap.registerPlugin(ScrollToPlugin)
 import LoadingScreen from '../components/LoadingScreen'
 import Header from '../components/Header'
 import HeroSection from '../components/HeroSection'
@@ -20,8 +24,17 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true)
   const [orderOpen, setOrderOpen] = useState(false)
 
-  const scrollTo = useCallback((id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  const scrollTo = useCallback((id, { offset = 0, duration = 1.5 } = {}) => {
+    const el = document.getElementById(id)
+    if (!el) return
+    // Match react-scroll: destination = elementTop + offset (negative offset scrolls less)
+    const y = Math.max(0, el.getBoundingClientRect().top + window.scrollY + offset)
+    gsap.to(window, {
+      duration,
+      scrollTo: y,
+      ease: 'none',
+      autoKill: true,
+    })
   }, [])
 
   const handleLoadingComplete = useCallback(() => {
@@ -33,9 +46,9 @@ export default function HomePage() {
     <div className="max-w-full bg-theOneWhite overflow-x-hidden relative">
       {loading && <LoadingScreen onComplete={handleLoadingComplete} />}
       <Header
-        onOrderClick={() => setOrderOpen(true)}
-        onBurgerClick={() => scrollTo('aboutBurger')}
-        onHomeClick={() => scrollTo('theOne')}
+        onOrderClick={() => scrollTo('orderIt', { offset: -240, duration: 1.5 })}
+        onBurgerClick={() => scrollTo('aboutBurger', { offset: -80, duration: 3 })}
+        onHomeClick={() => scrollTo('theOne', { duration: 1.5 })}
       />
       <HeroSection onOrderClick={() => setOrderOpen(true)} />
       <ScrollText />
