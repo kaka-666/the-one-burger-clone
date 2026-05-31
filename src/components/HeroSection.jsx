@@ -1,13 +1,20 @@
 import { TheOneLogoLarge } from './Header'
 import { BagIcon, GlovoIcon, JustEatIcon, UberIcon } from './DeliveryIcons'
+import { getHeroTitleFontSize, useVisualViewportWidth } from '../hooks/useDevice'
 
 export default function HeroSection({ onOrderClick }) {
+  const viewportWidth = useVisualViewportWidth()
+  const isLargeLayout = viewportWidth >= 1024
+  const titleFontSize = `${getHeroTitleFontSize(viewportWidth)}rem`
+
   return (
     <section id="theOne" className="h-screen flex flex-col">
       <div className="min-h-11 w-full shrink-0 md:min-h-20" aria-hidden="true" />
       <div className="flex-grow flex flex-col max-h-full">
         <div className="flex flex-col items-center justify-center h-4/5">
-          <section className="flex h-4/6 lg:h-5/6 min-h-0 items-end justify-center pt-1 md:pt-1 lg:pt-2">
+          <section
+            className={`flex min-h-0 items-end justify-center pt-1 md:pt-1 lg:pt-2 ${isLargeLayout ? 'h-5/6' : 'h-4/6'}`}
+          >
             <video
               className="h-full w-full max-h-full max-w-full object-contain object-bottom md:object-cover md:object-[center_88%] lg:self-end"
               playsInline
@@ -20,8 +27,13 @@ export default function HeroSection({ onOrderClick }) {
               <source src="/videos/TheOne_Web_Hero_006.mp4" type="video/mp4" />
             </video>
           </section>
-          <section className="flex h-2/6 lg:h-1/6 min-h-0 items-center justify-center">
-            <h1 className="text-4xl lg:text-7xl font-bold text-theOneGray self-center">
+          <section
+            className={`flex min-h-0 items-center justify-center ${isLargeLayout ? 'h-1/6' : 'h-2/6'}`}
+          >
+            <h1
+              className="font-bold text-theOneGray self-center text-center leading-none"
+              style={{ fontSize: titleFontSize }}
+            >
               PARA NO PENSAR.
             </h1>
           </section>
