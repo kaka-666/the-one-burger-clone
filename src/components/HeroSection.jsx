@@ -7,7 +7,7 @@ export default function HeroSection({ onOrderClick }) {
       <div className="min-h-11 w-full shrink-0 md:min-h-20" aria-hidden="true" />
       <div className="flex-grow flex flex-col max-h-full">
         <div className="flex flex-col items-center justify-center h-4/5">
-          <section className="flex h-5/6 min-h-0 items-end justify-center pt-1 md:pt-1 lg:pt-2">
+          <section className="flex h-4/6 lg:h-5/6 min-h-0 items-end justify-center pt-1 md:pt-1 lg:pt-2">
             <video
               className="h-full w-full max-h-full max-w-full object-contain object-bottom md:object-cover md:object-[center_88%] lg:self-end"
               playsInline
@@ -20,8 +20,8 @@ export default function HeroSection({ onOrderClick }) {
               <source src="/videos/TheOne_Web_Hero_006.mp4" type="video/mp4" />
             </video>
           </section>
-          <section className="flex h-1/6 min-h-0 items-center justify-center">
-            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] font-bold text-theOneGray self-center leading-none text-center">
+          <section className="flex h-2/6 lg:h-1/6 min-h-0 items-center justify-center">
+            <h1 className="text-4xl lg:text-7xl font-bold text-theOneGray self-center">
               PARA NO PENSAR.
             </h1>
           </section>
