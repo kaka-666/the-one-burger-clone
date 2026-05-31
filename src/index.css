@@ -206,29 +206,11 @@ p {
   .loading-screen-text {
     font-size: 4.5rem;
   }
-
-  .faq-title,
-  .faqs .faq .faq-question {
-    font-size: 22px;
-  }
-
-  .faqs .faq .faq-answer {
-    font-size: 18px;
-  }
 }
 
 @media (min-width: 1536px) {
   .loading-screen-text {
     font-size: 4.5rem;
-  }
-
-  .faq-title,
-  .faqs .faq .faq-question {
-    font-size: 24px;
-  }
-
-  .faqs .faq .faq-answer {
-    font-size: 20px;
   }
 }
 

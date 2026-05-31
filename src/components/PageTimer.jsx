@@ -127,14 +127,14 @@ export default function PageTimer() {
 
   if (isCompactLayout) {
     return (
-      <div ref={wrapperRef} className="relative h-36 flex items-end justify-end">
-        <p className="text-right bg-theOneWhite p-4 font-kunst-regular text-theOneBlack">
-          <span className="text-3xl">
+      <div ref={wrapperRef} className="relative flex h-36 items-end justify-end">
+        <p className="bg-theOneWhite p-4 text-right font-kunst-regular text-theOneBlack">
+          <span className="text-3xl leading-none">
             Llevas{' '}
             <span className="text-theOneRed">{formatted}min</span> en la web.
           </span>
           <br />
-          <span className="text-xl">
+          <span className="text-xl leading-none">
             En este rato, hemos preparado {preparedCount} TheOne. ¿A qué esperas para pedir el
             tuyo?
           </span>
@@ -146,24 +146,30 @@ export default function PageTimer() {
   return (
     <div
       ref={wrapperRef}
-      className="relative h-36 flex items-end align-baseline justify-end"
+      className={`relative flex items-end justify-end ${
+        inFooter ? 'min-h-52 pt-16 pb-4 md:min-h-60 md:pt-20' : 'h-36 align-baseline'
+      }`}
     >
       <div
         ref={containerRef}
-        className="absolute bottom-0 right-[1%] flex gap-2 text-theOneBlack p-4 rounded-md z-20 items-end align-baseline justify-end min-w-40 text-xl xl:text-2xl"
+        className={`flex items-end justify-end gap-2 rounded-md p-4 text-theOneBlack ${
+          inFooter
+            ? 'relative z-0 w-full'
+            : 'absolute bottom-0 right-[1%] z-20 min-w-40 text-xl'
+        }`}
         onMouseEnter={() => !inFooter && setHovered(true)}
         onMouseLeave={() => !inFooter && setHovered(false)}
       >
         {inFooter ? (
           <p
             ref={paragraphRef}
-            className="animated-paragraph text-right bg-theOneWhite p-4 pl-12 overflow-hidden font-kunst-regular"
+            className="animated-paragraph w-full bg-theOneWhite p-4 pl-12 pr-4 pt-12 text-right leading-none md:pt-16 font-kunst-regular"
           >
-            <span className="text-6xl xl:text-7xl 2xl:text-8xl">
+            <span className="text-6xl">
               Llevas <span className="text-theOneRed">{formatted}min</span> en la web.
             </span>
             <br />
-            <span className="text-4xl xl:text-5xl 2xl:text-6xl">
+            <span className="text-4xl">
               En este rato, hemos preparado {preparedCount} TheOne. ¿A qué esperas para pedir el
               tuyo?
             </span>
@@ -171,7 +177,7 @@ export default function PageTimer() {
         ) : hovered ? (
           <p
             ref={paragraphRef}
-            className="animated-paragraph text-right bg-theOneWhite p-4 border-2 border-theOneBlack overflow-hidden font-kunst-regular"
+            className="animated-paragraph overflow-hidden border-2 border-theOneBlack bg-theOneWhite p-4 text-right font-kunst-regular"
           >
             Llevas {formatted}min en la web.
             <br />
@@ -182,7 +188,7 @@ export default function PageTimer() {
         ) : (
           <p
             ref={paragraphRef}
-            className="min-w-20 animated-paragraph text-right leading-none overflow-hidden font-kunst-regular"
+            className="animated-paragraph min-w-20 overflow-hidden text-right leading-none font-kunst-regular"
           >
             {formatted}min
           </p>
