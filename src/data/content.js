@@ -1,29 +1,29 @@
 export const LOADING_TEXTS = [
-  'Sazonando la carne...',
-  'Pelando las patatas fritas...',
+  'Seasoning the beef...',
+  'Cutting the fries...',
 ]
 
-export const SCROLL_TEXT = `Nos encanta poder hacerte el día más sencillo, reduciendo el número de decisiones que tomas para que te puedas centrar en lo que de verdad importa. En The One. creemos que menos es más, y creamos un menú por menos. Un menú para todo el mundo. Quitamos el ruido y las estridencias para que te concentres únicamente en el sabor. The One. es fácil de recomendar, ya que quienes nos eligen encuentran un menú «triple B» por sólo 9.99€, con patatas, salsas y refresco. ¿Quién da más?
-The One. es perfecta, para no pensar.`
+export const SCROLL_TEXT = `We love making your day easier by cutting down the decisions you have to make, so you can focus on what really matters. At The One., we believe less is more — so we built a menu for less. One menu for everyone. We strip out the noise so you can focus on the flavour. The One. is easy to recommend: our regulars get a «triple B» meal for just €9.99 — burger, fries, sauces, and a drink. Who does it better?
+The One. is perfect when you don't want to think.`
 
 export const BURGERS = [
   {
     type: 'meat',
-    name: 'Ternera.',
-    label: 'Ternera',
+    name: 'Beef.',
+    label: 'Beef',
     image: '/images/The_Burgers_EFWhiteBG__Ternera_1.png',
-    alt: 'The One Carne Burger',
+    alt: 'The One Beef Burger',
     description:
-      'Una pieza de carne de 120gr de vaca angus, queso cheddar, pepinillo. Acompañada con la auténtica The Salsa.',
+      '120g Angus beef patty, cheddar cheese, pickle. Served with the one and only The Salsa.',
   },
   {
     type: 'chicken',
-    name: 'Pollo.',
-    label: 'Pollo',
+    name: 'Chicken.',
+    label: 'Chicken',
     image: '/images/The_Burgers_EFWhiteBG__Pollo_1.png',
-    alt: 'The One Pollo Burger',
+    alt: 'The One Chicken Burger',
     description:
-      'Una jugosa pieza de pechuga de pollo de corral rebozada, queso cheddar, pepinillo y cebolla. Acompañada con la auténtica The Salsa.',
+      'Juicy free-range chicken breast, breaded, with cheddar, pickle, and onion. Served with the one and only The Salsa.',
   },
   {
     type: 'veggie',
@@ -32,93 +32,99 @@ export const BURGERS = [
     image: '/images/The_Burgers_EFWhiteBG__Veggie_1.png',
     alt: 'The One Veggie Burger',
     description:
-      'Nuestro pan vegano, acompañado de un filete de remolacha, queso vegano, pepinillo, rúcula y la auténtica The Salsa. Cocinada aparte, obviamente.',
+      'Our vegan bun with a beetroot patty, vegan cheese, pickle, rocket, and the one and only The Salsa. Cooked separately, of course.',
   },
 ]
 
 export const SPEC_BLOCKS = [
   {
-    title: 'Peso aproximado (±5gr)',
+    title: 'Approx. weight (±5g)',
     items: [
-      { name: 'Hamburguesa', value: '285gr.' },
-      { name: 'Patatas', value: '150gr.' },
-      { name: 'Refresco', value: '330ml.' },
+      { name: 'Burger', value: '285g.' },
+      { name: 'Fries', value: '150g.' },
+      { name: 'Drink', value: '330ml.' },
     ],
   },
   {
-    title: 'Suma calórica total hamburguesa + patatas (±20kcal)',
+    title: 'Total calories burger + fries (±20kcal)',
     items: [
-      { name: 'Versión Ternera', value: '903 kcal.' },
-      { name: 'Versión Pollo', value: '945 kcal.' },
-      { name: 'Versión Veggie', value: '820 kcal.' },
+      { name: 'Beef version', value: '903 kcal.' },
+      { name: 'Chicken version', value: '945 kcal.' },
+      { name: 'Veggie version', value: '820 kcal.' },
     ],
   },
   {
-    title: 'Tiempo medio',
+    title: 'Average time',
     items: [
-      { name: 'Consumo de menú completo', value: '16-22min.' },
-      { name: 'Preparación completa de un The One. (desde pedido)', value: '5-8min.' },
-      { name: 'Aceptación de un pedido', value: '15-40 seg.' },
+      { name: 'Full meal', value: '16–22min.' },
+      { name: 'Full The One. prep (from order)', value: '5–8min.' },
+      { name: 'Order accepted', value: '15–40 sec.' },
     ],
   },
   {
-    title: 'Calidad óptima garantizada',
+    title: 'Peak quality guaranteed',
     items: [
-      { name: 'Desde preparación, recomendamos consumir antes:', value: '<30min' },
-      { name: 'En el local', value: 'Al instante' },
-      { name: 'Delivery con bolsa térmica', value: '<50min' },
+      { name: 'From prep, we recommend eating within:', value: '<30min' },
+      { name: 'In-store', value: 'Immediately' },
+      { name: 'Delivery in thermal bag', value: '<50min' },
     ],
   },
 ]
 
 export const FAQS = [
   {
-    question: '¿Qué es The One.?',
+    question: 'What is The One.?',
     answer:
-      'The One. es la hamburguesa que estabas buscando. Nosotros también hemos estado en la tesitura de tener que elegir qué comemos hoy, ya sea en casa o en el descanso del trabajo. Para aquellas personas que buscan no complicarse, la elección es, simplemente, The One.',
+      'The One is the hamburger you were looking for. We have also been at the dilemma of having to choose what we eat today, whether at home or during work breaks. For those who seek simplicity, the choice is simply The One.',
   },
   {
-    question: '¿Cómo puedo pedir The One.?',
+    question: 'How can I order The One.?',
+    answer: [
+      'You can order it on our ordering website to pick up at our store, or request it through one of our partner services*, which will deliver it wherever you want.',
+      '*As you know, delivery companies apply certain fees that we are not responsible for and have no control over; The One home delivery may cost approximately the PVP of 9.99€. We strive to constantly review these prices so that our customers receive fair pricing.',
+    ],
+    answerBreak: 'double',
+  },
+  {
+    question: 'How much does The One cost?',
     answer:
-      'Puedes encargarla en nuestra web de pedidos para recogerla en nuestro local, o solicitarlo a través de uno de nuestros servicios colaboradores*, que te lo llevarán a donde tu quieras. *Como sabrás, las empresas de delivery, aplican ciertos fees de los que no somos responsables y sobre los que no tenemos control, puede que The One. a domicilio cueste más o menos del PVP de 9.99€. Tratamos de revisar estos precios constantemente para que nuestra clientela reciba precios justos.',
+      "9.99€ With potatoes, sauces and drink. 9.99€ Even if you don't want the potatoes, sauce or drink.",
   },
   {
-    question: '¿Cuánto cuesta The One?',
+    question: 'What happens if I want to modify The One.?',
     answer:
-      '9.99€ Con patatas, salsas y bebida. 9.99€ Aunque no quieras las patatas, salsa o la bebida.',
+      'You can choose between The One: Beef, Chicken, and Veggie. Among these three varieties, we allow you to remove ingredients, but you cannot exclude either potatoes or the drink.',
   },
   {
-    question: '¿Qué pasa si quiero modificar The One.?',
+    question: "And if I still don't want the potatoes and/or drink?",
     answer:
-      'Puedes elegir entre The One. Ternera, Pollo y Veggie. De las tres variedades permitimos retirar ingredientes, pero no te podrás librar ni de las patatas ni de la bebida.',
+      'Share it with your work partner, give it to someone, or save it for later. The One is a unique menu: hamburger, fries, sauces and drink.',
   },
   {
-    question: '¿Y si aún así no quiero las patatas y/o la bebida?',
+    question: 'Why in The One. can I only change the meat?',
     answer:
-      'Compártelas con tu compañera del trabajo, regálaselas a alguien o guárdalas para después. The One. es un menú único, con hamburguesa, patatas, salsas y bebida.',
+      "We believe in the perfect product and work constantly to offer it to you. Therefore, we try to simplify everything possible on our menu to give you what's essential.",
   },
   {
-    question: '¿Por qué en The One. sólo puedo cambiar la carne?',
+    question: 'What drinks can I choose?',
+    answer: 'We have a variety of soft drinks, water, beer, and cold tea.',
+  },
+  {
+    question: "But look, what happens if I still don't want the potatoes and/or drink?",
+    answer: 'The One comes with hamburger, potatoes and drink.',
+  },
+  {
+    question: 'When will The One. arrive in my city?',
+    answer: [
+      "We hope it's soon, but we have a high standard of quality that we need to meet in order to feel comfortable offering you The One. near you.",
+      'If you want, contact us on social media to tell us where we should open our next The One.',
+    ],
+    answerBreak: 'single',
+  },
+  {
+    question: 'Do I have a question, concern or suggestion?',
     answer:
-      'Creemos en el producto perfecto y trabajamos constantemente para ofrecértelo. Por ello, intentamos simplificar todo lo posible nuestro menú para darte lo esencial.',
-  },
-  {
-    question: '¿Qué bebidas puedo elegir?',
-    answer: 'Tenemos una variedad de refrescos, agua, cerveza y tés fríos.',
-  },
-  {
-    question: 'Pero mira, ¿qué pasa si aún así no quiero las patatas y/o la bebida?',
-    answer: 'The One viene con hamburguesa, patatas y bebida.',
-  },
-  {
-    question: '¿Cuándo llegará The One. a mi ciudad?',
-    answer:
-      'Esperamos que pronto, pero tenemos un elevado estándar de calidad que necesitamos cumplir para sentirnos a gusto ofreciéndote The One. cerca de ti. Si quieres, contáctanos por redes para contarnos dónde deberíamos abrir nuestro próximo The One.',
-  },
-  {
-    question: '¿Tengo una pregunta, duda o sugerencia?',
-    answer:
-      'Puedes contactar con nosotros a través de hola@byfugu.com, o en RRSS @wearefugu o en el +34 612 345 678.',
+      'You can contact us through hola@byfugu.com, or on social media @wearefugu or at +34 612 345 678.',
   },
 ]
 

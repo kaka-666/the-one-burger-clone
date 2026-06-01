@@ -133,7 +133,7 @@ function RunningText() {
           ref={headingRef}
           className="text-4xl md:text-7xl 2xl:text-8xl font-kunst-medium translate-x-[100%]"
         >
-          HAY UNA THE ONE PARA TOOO0000OO0ODO EL MUNDO.
+          THERE&apos;S A THE ONE FOR EVERYOOOOOOOOOOONE IN THE WORLD.
         </h2>
       </div>
     </section>

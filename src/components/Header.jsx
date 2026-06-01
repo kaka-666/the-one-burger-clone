@@ -80,7 +80,7 @@ export default function Header({ onOrderClick, onBurgerClick, onHomeClick }) {
         onMouseLeave={() => setOrderHovered(false)}
       >
         <section className={`${navSectionClass} bg-theOneWhite`}>
-          <p className="text-theOneBlack font-bold">PÍDELA.</p>
+          <p className="text-theOneBlack font-bold">ORDER IT.</p>
           <p
             className={`text-theOneRed font-semibold transition-all duration-300 ${
               orderHovered ? 'max-w-8 opacity-100' : 'max-w-0 opacity-0'
@@ -102,7 +102,7 @@ export default function Header({ onOrderClick, onBurgerClick, onHomeClick }) {
             className={`${navSectionClass} border-x-2 border-theOneBlack bg-theOneGray`}
           >
             <p className="whitespace-nowrap font-bold text-theOneWhite">
-              {isMobile ? 'LA BURGER.' : 'SOBRE LA BURGER.'}
+              {isMobile ? 'THE BURGER.' : 'ABOUT THE BURGER.'}
             </p>
             <p
               className={`text-theOneRed font-semibold transition-all duration-300 ${

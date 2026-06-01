@@ -29,14 +29,14 @@ export default function OrderModal({ open, onClose }) {
         type="button"
         className="fixed top-0 left-0 w-full h-full bg-theOneBlack opacity-50"
         onClick={handleClose}
-        aria-label="Cerrar"
+        aria-label="Close"
       />
       <div className="relative flex flex-col max-w-[90%] md:w-[850px] border-2 border-theOneBlack bg-theOneWhite z-20">
         <button
           type="button"
           onClick={handleClose}
           className="absolute right-4 top-4 md:right-8 md:top-8 group"
-          aria-label="Cerrar modal"
+          aria-label="Close modal"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path
@@ -47,12 +47,11 @@ export default function OrderModal({ open, onClose }) {
         </button>
         <div className="flex flex-col p-4 md:p-8">
           <p className="text-2xl md:text-4xl font-bold mb-6">
-            ¿Ganas de <span className="text-theOneRed">TheOne.</span>?
+            Craving <span className="text-theOneRed">TheOne.</span>?
           </p>
           <div className="text-lg md:text-2xl flex flex-col gap-4 font-kunst-regular text-theOneGray">
             <p>
-              De momento no se ha lanzado el producto, este es un prototipo que hemos preparado desde la
-              agencia{' '}
+              The product hasn&apos;t launched yet — this is a prototype we built at agency{' '}
               <a
                 target="_blank"
                 href="https://www.byfugu.com/"
@@ -61,22 +60,22 @@ export default function OrderModal({ open, onClose }) {
               >
                 byfugu.com
               </a>{' '}
-              para nuestro cliente.
+              for our client.
             </p>
             <p>
-              Con él, estamos comprobando gradualmente si todo funciona como esperamos.{' '}
+              We&apos;re using it to gradually test that everything works as expected.{' '}
               <a
                 target="_blank"
                 href="https://www.byfugu.com/work/theoneburger"
                 rel="noreferrer"
                 className="underline hover:text-theOneRed duration-300 text-theOneBlack"
               >
-                Visita nuestra web
+                Visit our site
               </a>{' '}
-              para ver el resto del proyecto
+              to see the rest of the project
             </p>
             <p>
-              Cuando salga TheOne. definitivamente, avisaremos de su ubicación y web a través de nuestro{' '}
+              When TheOne. launches for real, we&apos;ll share the location and website on our{' '}
               <a
                 target="_blank"
                 href="https://www.instagram.com/wearefugu/"
@@ -95,7 +94,7 @@ export default function OrderModal({ open, onClose }) {
             className="flex w-1/2 py-1 pr-1 md:py-3 md:pr-3 md:pl-12 pl-3 justify-end items-end hover:bg-theOneRed hover:text-theOneWhite duration-300 border-r border-theOneBlack"
             onClick={handleClose}
           >
-            Entendido!
+            Got it!
           </button>
           <a
             target="_blank"

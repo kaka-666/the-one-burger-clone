@@ -34,7 +34,7 @@ export default function HeroSection({ onOrderClick }) {
               className="font-bold text-theOneGray self-center text-center leading-none"
               style={{ fontSize: titleFontSize }}
             >
-              PARA NO PENSAR.
+              DON&apos;T THINK.
             </h1>
           </section>
         </div>
@@ -47,7 +47,7 @@ export default function HeroSection({ onOrderClick }) {
             className="w-[50%] md:w-[28%] min-w-0 shrink flex items-center justify-center border-r-2 md:border-r-0 border-theOneBlack text-theOneBlack cursor-pointer hover:text-theOneWhite hover:bg-theOneRed transition duration-300 md:gap-2 lg:gap-4 group"
             onClick={onOrderClick}
           >
-            <p className="mr-2 shrink-0">Recógela.</p>
+            <p className="mr-2 shrink-0">Pick it up.</p>
             <span className="w-9 md:w-11 lg:w-14 shrink-0">
               <BagIcon />
             </span>
@@ -61,7 +61,7 @@ export default function HeroSection({ onOrderClick }) {
               if (e.key === 'Enter' || e.key === ' ') onOrderClick()
             }}
           >
-            <p className="mr-2 shrink-0">Pídela.</p>
+            <p className="mr-2 shrink-0">Order it.</p>
             <span className="w-6 md:w-7 lg:w-9 shrink-0">
               <UberIcon />
             </span>

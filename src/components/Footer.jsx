@@ -19,7 +19,7 @@ export default function Footer({ onLinkClick }) {
             role="button"
             tabIndex={0}
           >
-            Contacta
+            Contact
           </p>
           <p
             className="hover-underline-animation"
@@ -37,7 +37,7 @@ export default function Footer({ onLinkClick }) {
             role="button"
             tabIndex={0}
           >
-            Política de privacidad
+            Privacy Policy
           </p>
           <p
             className="hover-underline-animation"

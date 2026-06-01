@@ -130,13 +130,13 @@ export default function PageTimer() {
       <div ref={wrapperRef} className="relative flex h-36 items-end justify-end">
         <p className="bg-theOneWhite p-4 text-right font-kunst-regular text-theOneBlack">
           <span className="text-3xl leading-none">
-            Llevas{' '}
-            <span className="text-theOneRed">{formatted}min</span> en la web.
+            You&apos;ve been here for{' '}
+            <span className="text-theOneRed">{formatted}min</span>.
           </span>
           <br />
           <span className="text-xl leading-none">
-            En este rato, hemos preparado {preparedCount} TheOne. ¿A qué esperas para pedir el
-            tuyo?
+            In that time, we&apos;ve made {preparedCount} The One burgers. What are you waiting for?
+            Order yours.
           </span>
         </p>
       </div>
@@ -166,12 +166,12 @@ export default function PageTimer() {
             className="animated-paragraph w-full bg-theOneWhite p-4 pl-12 pr-4 pt-12 text-right leading-none md:pt-16 font-kunst-regular"
           >
             <span className="text-6xl">
-              Llevas <span className="text-theOneRed">{formatted}min</span> en la web.
+              You&apos;ve been here for <span className="text-theOneRed">{formatted}min</span>.
             </span>
             <br />
             <span className="text-4xl">
-              En este rato, hemos preparado {preparedCount} TheOne. ¿A qué esperas para pedir el
-              tuyo?
+              In that time, we&apos;ve made {preparedCount} The One burgers. What are you waiting
+              for? Order yours.
             </span>
           </p>
         ) : hovered ? (
@@ -179,11 +179,11 @@ export default function PageTimer() {
             ref={paragraphRef}
             className="animated-paragraph overflow-hidden border-2 border-theOneBlack bg-theOneWhite p-4 text-right font-kunst-regular"
           >
-            Llevas {formatted}min en la web.
+            You&apos;ve been here for {formatted}min.
             <br />
-            En este rato, hemos preparado {preparedCount} TheOne.
+            In that time, we&apos;ve made {preparedCount} The One burgers.
             <br />
-            ¿A qué esperas para pedir el tuyo?
+            What are you waiting for? Order yours.
           </p>
         ) : (
           <p
