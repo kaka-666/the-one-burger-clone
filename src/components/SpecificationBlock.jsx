@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export default function SpecificationBlock({ title, items }) {
+export default function SpecificationBlock({ title, items, forceScrollTitle = false }) {
   const titleRef = useRef(null)
   const itemRefs = useRef([])
 
@@ -8,17 +8,18 @@ export default function SpecificationBlock({ title, items }) {
     const checkOverflow = () => {
       if (titleRef.current) {
         const parent = titleRef.current.parentElement
-        if (parent.scrollWidth > parent.clientWidth) {
+        if (forceScrollTitle || parent.scrollWidth > parent.clientWidth) {
           titleRef.current.classList.add('auto-scroll')
         } else {
           titleRef.current.classList.remove('auto-scroll')
         }
       }
 
-      itemRefs.current.forEach((el) => {
+      itemRefs.current.forEach((el, index) => {
         if (!el) return
         const parent = el.parentElement
-        if (parent.scrollWidth > parent.clientWidth) {
+        const forceScroll = items[index]?.forceScroll === true
+        if (forceScroll || parent.scrollWidth > parent.clientWidth) {
           el.classList.add('auto-scroll')
         } else {
           el.classList.remove('auto-scroll')
@@ -29,7 +30,7 @@ export default function SpecificationBlock({ title, items }) {
     checkOverflow()
     window.addEventListener('resize', checkOverflow)
     return () => window.removeEventListener('resize', checkOverflow)
-  }, [title, items])
+  }, [title, items, forceScrollTitle])
 
   return (
     <div className="flex flex-col w-full lg:text-lg">

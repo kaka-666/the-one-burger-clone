@@ -47,7 +47,7 @@ export default function OrderModal({ open, onClose }) {
         </button>
         <div className="flex flex-col p-4 md:p-8">
           <p className="text-2xl md:text-4xl font-bold mb-6">
-            Craving <span className="text-theOneRed">TheOne.</span>?
+            Craving <span className="text-theOneRed">The One</span>?
           </p>
           <div className="text-lg md:text-2xl flex flex-col gap-4 font-kunst-regular text-theOneGray">
             <p>
@@ -75,7 +75,7 @@ export default function OrderModal({ open, onClose }) {
               to see the rest of the project
             </p>
             <p>
-              When TheOne. launches for real, we&apos;ll share the location and website on our{' '}
+              When The One launches for real, we&apos;ll share the location and website on our{' '}
               <a
                 target="_blank"
                 href="https://www.instagram.com/wearefugu/"

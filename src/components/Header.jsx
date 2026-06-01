@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import useDevice from '../hooks/useDevice'
 
-function TheOneLogo({ className = '' }) {
+function TheOneLogo({ className = '', ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 121 15"
       fill="none"
       className={className}
+      {...props}
     >
       <path
         d="M17.6985 3.14593H11.0867V13.8733H7.58636V3.14593H0.974609V0.195404H17.6985V3.14593Z"
@@ -113,9 +114,17 @@ export default function Header({ onOrderClick, onBurgerClick, onHomeClick }) {
             </p>
           </section>
         </button>
-        <button type="button" className="flex h-full shrink-0 cursor-pointer" onClick={onHomeClick}>
+        <button
+          type="button"
+          className="flex h-full shrink-0 cursor-pointer"
+          onClick={onHomeClick}
+          aria-label="The One Home"
+        >
           <section className="group flex h-full items-end justify-end bg-theOneRed pb-3 pl-7 pr-3 transition duration-300 hover:bg-theOneBlack hover:text-theOneRed md:pl-12">
-            <TheOneLogo className="block h-[17px] w-full max-h-[17px] max-w-[135px] md:h-[25px] md:max-h-[25px] md:max-w-[200px]" />
+            <TheOneLogo
+              className="block h-[17px] w-full max-h-[17px] max-w-[135px] md:h-[25px] md:max-h-[25px] md:max-w-[200px]"
+              aria-hidden="true"
+            />
           </section>
         </button>
       </div>

@@ -7,7 +7,7 @@ export default function SpecsSection() {
       <div className="w-full flex justify-end border-b-2 border-theOneBlack overflow-hidden">
         <div className="w-full flex px-4 md:px-14 py-5 items-end justify-end min-h-[160px] max-h-[230px] overflow-hidden">
           <h2 className="inline-block w-max max-w-full text-left font-kunst-medium pt-2 leading-none text-3xl sm:text-4xl lg:text-5xl xl:text-6xl overflow-hidden break-words">
-            LAS ESPECIFICACIONES TÉCNICAS.
+            TECHNICAL SPECIFICATIONS.
           </h2>
         </div>
       </div>

@@ -25,7 +25,7 @@ export default function FAQ() {
     <section id="faq" className="w-full bg-theOneWhite">
       <div className="faqs mb-16 p-4 md:p-14">
         <p className="faq-title font-kunst-bold text-theOneBlack">
-          Any questions? Check our FAQ&apos;s
+          Any questions? Check our FAQs
         </p>
         {FAQS.map((faq, index) => (
           <div

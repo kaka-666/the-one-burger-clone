@@ -4,14 +4,14 @@ export default function ImagesSection() {
       <div className="md:w-7/12 h-[250px] md:h-auto">
         <img
           src="/images/TheOne_LuminosoLED_v01.jpg"
-          alt="TheOne. illuminated poster"
+          alt="The One illuminated poster"
           className="w-full h-full object-cover"
         />
       </div>
       <div className="md:w-5/12 h-[250px] md:h-auto">
         <img
           src="/images/Clothing_TheOne.Crafter_v10_2.png"
-          alt="TheOne. Polo shirt"
+          alt="The One polo shirt"
           className="w-full h-full object-cover"
         />
       </div>
